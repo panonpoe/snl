@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snake and Ladder Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Patrick Hand', cursive;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+       #game-board {
+            position: relative;
+            width: 520px;
+            height: 520px;
+            margin: 0 auto;
+        }
+
+        #board {
+            display: grid;
+            grid-template-columns: repeat(10, 50px);
+            grid-template-rows: repeat(10, 50px);
+            gap: 2px;
+            width: 520px;
+            height: 520px;
+            background: #eee;
+        }
+
+        #board div {
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            color: #333;
+        }
+
+        .player {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .cell-image {
+            width: 100%;
+            height: 100%;
+        }
+
+        button {
+            background-color: #6BB26D;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #509A58;
+        }
+
+        .info-container {
+            width: 240px; /* Or whatever width you prefer */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9; /* A light background */
+            margin-left: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+        }
+
+        #game-container {
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            gap: 20px;
+            width: 800px; /* Adjusted based on new info container width */
+            margin: 0 auto;
+        }
+
+        #snake-ladder-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 520px;
+            height: 520px;
+            background: url('snlboard.jpg') no-repeat;
+            z-index: 0;  // Ensures it's behind the players and squares
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Snake and Ladder Game</h1>
+    <div id="game-container">
+        <div id="game-board">
+            <div id="snake-ladder-bg"></div>
+            <div id="board"></div>
+            <div id="players"></div>
+        </div>
+        <div class="info-container">
+            <p>Current Player's Turn: <span id="playerTurn">1</span></p>
+            <p>Player 1 Position: <span id="position1">0</span></p>
+            <p>Player 2 Position: <span id="position2">0</span></p>
+            <button id="rollButton">Roll Die</button>
+            <p>Die Roll: <span id="dieRoll">0</span></p>
+            <p id="message"></p>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
